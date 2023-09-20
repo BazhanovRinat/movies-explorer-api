@@ -4,14 +4,14 @@ const router = require('express').Router();
 const auth = require('../middlewares/auth');
 
 const {
-    getMovies,
+    getSavedMovies,
     createMovie,
     deleteMovie,
 } = require('../controllers/movies');
 
 router.use(auth);
 
-router.get('/movies', getMovies);
+router.get('/movies', getSavedMovies);
 
 router.post('/movies', celebrate({
     body: Joi.object().keys({
