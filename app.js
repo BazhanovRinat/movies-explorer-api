@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const router = require('./routes/index');
 const errorHandler = require('./errors/errorHandler');
 const NotFound = require('./errors/notFound-error');
+const cors = require('cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -29,6 +30,12 @@ const limiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
+
+app.use(cors({
+  origin: '*', 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+}));
 
 app.use(limiter);
 
