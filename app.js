@@ -10,10 +10,6 @@ const cors = require('cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
-
 const { PORT = 3001, MONGODB_URL = 'mongodb://127.0.0.1:27017/movies-explorerdb' } = process.env;
 
 mongoose.connect(MONGODB_URL, {
