@@ -16,11 +16,11 @@ const getMovies = async (req, res, next) => {
 const createMovie = (req, res, next) => {
     const userId = req.user._id;
     const { country, director, duration, year, description, image,
-        trailer, nameRU, nameEN, thumbnail, movieId } = req.body;
+        trailerLink, nameRU, nameEN, thumbnail, movieId } = req.body;
 
     return movieModel.create({
         country, director, duration, year, description, image,
-        trailer, nameRU, nameEN, thumbnail, movieId, owner: userId
+        trailerLink, nameRU, nameEN, thumbnail, movieId, owner: userId
     })
         .then((movie) => res.status(201).send(movie))
         .catch((err) => {
