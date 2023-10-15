@@ -3,14 +3,12 @@ const NotFound = require('../errors/notFound-error');
 const BadRequest = require('../errors/badRequest-error');
 const Forbidden = require('../errors/forbidden-error');
 
-const getMovies = async (req, res, next) => {
-    try {
-        const userId = req.user._id;
-        const movies = await movieModel.find({ owner: userId });
-        res.status(200).send(movies);
-    } catch (err) {
-        next(err);
-    }
+const getMovies = (req, res, next) => {
+    const userId = req.user._id; 
+
+    movieModel.find({ owner: userId }) 
+        .then((movies) => res.status(200).send(movies))
+        .catch((err) => next(err));
 };
 
 const createMovie = (req, res, next) => {

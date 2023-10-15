@@ -30,15 +30,11 @@ router.post('/movies', celebrate({
     }),
 }), createMovie);
 
-router.delete('/movies/:_id', celebrate({
+router.delete('/movies/:movieId', celebrate({
     params: Joi.object().keys({
-        movieId: Joi.string().required().custom((value, helpers) => {
-            if (!mongoose.Types.ObjectId.isValid(value)) {
-                return helpers.error('objectId.invalid');
-            }
-            return value;
-        }).message('Некорректный ID фильма'),
+      movieId: Joi.string().required(),
     }),
-}), deleteMovie);
+  }),
+  deleteMovie);
 
 module.exports = router;
