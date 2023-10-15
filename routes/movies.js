@@ -24,7 +24,7 @@ router.post('/movies', celebrate({
         trailerLink: Joi.string().required().pattern(/^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]+$/),
         thumbnail: Joi.string().required().pattern(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?\.(jpeg|jpg|png)$/i),
         owner: Joi.string().required(),
-        movieId: Joi.string().required(),
+        movieId: Joi.number().required(),
         nameRU: Joi.string().required(),
         nameEN: Joi.string().required(),
     }),
