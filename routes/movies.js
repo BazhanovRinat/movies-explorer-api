@@ -21,7 +21,7 @@ router.post('/movies', celebrate({
         year: Joi.string().required(),
         description: Joi.string().required(),
         image: Joi.string().required().pattern(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?\.(jpeg|jpg|png)$/i),
-        trailerLink: Joi.string().required().pattern(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?\.(jpeg|jpg|png)$/i),
+        trailerLink: Joi.string().required().pattern(/^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=[\w-]+$/),
         thumbnail: Joi.string().required().pattern(/^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?\.(jpeg|jpg|png)$/i),
         owner: Joi.string().required(),
         movieId: Joi.number().required(),
